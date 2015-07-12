@@ -1,4 +1,5 @@
 (function(database) {
+    var config = require("../config").data();
     var mongoose = require("mongoose");
     var UserWaypoint = null;
     var UserSession = null;
@@ -31,7 +32,7 @@
     };
     
     database.init = function() {
-        mongoose.connect('mongodb://' + process.env.IP + '/virtualwalker');
+        mongoose.connect(config.mongo);
         
         UserWaypoint = mongoose.model('UserWaypoint', {
             userName: {
