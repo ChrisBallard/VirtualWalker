@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <style type="text/css">
+      .imageSub { position: relative; }
+      .imageSub img { z-index: 1; }
+      .imageSub div {
+        position: absolute;
+        left: 15%;
+        right: 15%;
+        bottom: 0;
+        padding: 4px;
+        height: 16px;
+        line-height: 16px;
+        text-align: center;
+        overflow: hidden;
+      }
+      .imageSub .blackbg {
+        z-index: 2;
+        background-color: #000;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+        filter: alpha(opacity=50);
+        opacity: 0.5;
+      }
+      .imageSub .label {
+        z-index: 3;
+        color: white;
+      }
+    </style>
+  </head>
+    <body>
+      <div class="imageSub" style="width: 300px;"> <!-- Put Your Image Width -->
+        <img src="image.jpg" alt="Something" />
+        <div class="blackbg"></div>
+        <div class="label">Label Goes Here</div>
+      </div>
+    </body>
+</html>

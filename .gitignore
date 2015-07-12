@@ -26,5 +26,11 @@ build/Release
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
 
+# local testing database
+data
+
 # secret stuff (API keys etc)
 secrets
+
+# exclude pics
+public/pics

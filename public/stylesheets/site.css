@@ -1,0 +1,70 @@
+body {
+    margin-top: 75px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.navbar-brand {
+    margin-top: 1px;
+    padding-left: 0px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+
+.nav-pills {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+@media(max-width:767px){
+    .formDiv {
+        margin-top: 10px;
+    }
+    .paddedForm {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media(min-width:768px){
+    .formDiv {
+        margin-top: 80px;
+    }
+    .paddedForm {
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+}
+
+.imageSub { position: relative; }
+.imageSub img { z-index: 1; }
+.imageSubDiv {
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    bottom: 0;
+    padding: 4px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    overflow: hidden;
+}
+.imageSub .blackbg {
+    z-index: 2;
+    background-color: #000;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+.imageSub .label {
+    z-index: 3;
+    color: white;
+}
+      
+      
+

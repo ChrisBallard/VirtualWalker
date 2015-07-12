@@ -9,7 +9,7 @@
         return rad / (Math.PI / 180.0);
     };
 
-    var offsetHeading = function(brng, hdgOff) {
+    geometry.offsetHeading = function(brng, hdgOff) {
         return ((brng + hdgOff) + 360.0) % 360.0;
     };
         

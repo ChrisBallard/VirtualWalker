@@ -1,0 +1,29 @@
+extends layout
+block content
+    .row
+        .col-sm-8.col-sm-offset-2
+            if messages && messages.length > 0
+                each message in messages
+                    .alert.alert-danger.alert-dismissible.fade-in.paddedForm(role="alert")
+                        button.close(type="button" data-dismiss="alert" aria-label="Close")
+                            span(aria-hidden="true") ×
+                        p= message
+    .row      
+        .formDiv.col-sm-8.col-sm-offset-2
+            .well.bs-component
+    
+                h4.paddedForm.text-muted= title
+
+                form.paddedForm(action='/',method='post')
+                    .form-group
+                        .input-group
+                            span.input-group-addon
+                                span.glyphicon.glyphicon-envelope
+                            input#input-email.form-control(type='text',name='email',placeholder='Email Address')
+                    .form-group
+                        .input-group
+                            span.input-group-addon
+                                span.glyphicon.glyphicon-lock                
+                            input#input-pwd.form-control(type='password',name='password',placeholder="Password")
+                    .form-group
+                        button.btn.btn-primary(type='submit') Login
