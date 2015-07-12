@@ -2,7 +2,7 @@
     var secrets = require("./secrets/api-keys");
     
     var dev = { 
-        mongo: "mongodb://" + process.env.IP + "/shortener",
+        mongo: "mongodb://" + process.env.IP + "/virtualwalker",
         port: process.env.PORT,
         host: "virtualwalker-chrisballard.c9.io",
         shortener: "chrsb.co",
@@ -12,7 +12,7 @@
     };
     
     var prod = {
-        mongo: "mongodb://127.0.0.1:27017/shortener",
+        mongo: "mongodb://127.0.0.1:27017/virtualwalker",
         port: 8003,
         host: "tvw.chrsb.co",
         shortener: "chrsb.co",
