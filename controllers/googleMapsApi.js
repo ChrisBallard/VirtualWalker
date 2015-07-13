@@ -66,7 +66,7 @@
             
             var routePoly = routeJson.routes[0].overview_polyline.points;
             var qs = querystring.stringify( {   size: "560x365", path: "color:0x0000ff80|weight:5|enc:"+routePoly,
-                                                markers: "color:blue|label:L|" + routeDef.obsPoint.toString(), key: config.googleApiKey });
+                                                markers: "color:blue|label:L|" + routeDef.obsPoint.asString, key: config.googleApiKey });
             var mapsUrl = new web.Url("https", "maps.googleapis.com", "/maps/api/staticmap?" + qs);                
             done(null, mapsUrl);
         };

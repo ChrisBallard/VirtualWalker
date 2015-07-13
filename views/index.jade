@@ -27,17 +27,21 @@ block content
                     .col-sm-12
                         .imageSub
                             img.img-responsive#streetviewFront(width=640,height=480)
-                            .blackbg.imageSubDiv
                             button.imageSubDiv#streetviewAdd(width=28,height=28) +
-
                         label &nbsp;
                 .row
                     .col-sm-4
-                        img.img-responsive#streetviewLeft(width=160,height=120)
+                        .imageSub
+                            img.img-responsive#streetviewLeft(width=160,height=120)
+                            button.imageSubDiv#streetviewLeftAdd(width=28,height=28) +
                     .col-sm-4
-                        img.img-responsive#streetviewRear(width=160,height=120)
+                        .imageSub
+                            img.img-responsive#streetviewRear(width=160,height=120)
+                            button.imageSubDiv#streetviewRearAdd(width=28,height=28) +
                     .col-sm-4
-                        img.img-responsive#streetviewRight(width=160,height=120)
+                        .imageSub
+                            img.img-responsive#streetviewRight(width=160,height=120)
+                            button.imageSubDiv#streetviewRightAdd(width=28,height=28) +
                         
         #routemap.tab-pane
             .well
