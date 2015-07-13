@@ -104,14 +104,14 @@
             
             var params = new StreetviewParams();
             params.parseSize(req.query.size);
-            params.setHeading(sessionData.route[sessionData.curIndex].heading, req.query.dir);
+            params.setHeading(sessionData.route[sessionData.curIndex].forwardHeading, req.query.dir);
             params.location = sessionData.route[sessionData.curIndex].location;
             
             var url = streetview.getStreetviewUrl(params);
             imageManager.downloadToFile(url, function (err, imageId) {
                 if(!err)
                 {
-                    var fileUrl = config.host + "/pics/" + imageId + ".jpg";
+                    var fileUrl = "http://" + config.host + "/pics/" + imageId + ".jpg";
                     web.shortenUrl(fileUrl, function(shortUrl) {
                         if(shortUrl) {
                             res.json({url: shortUrl});
@@ -138,11 +138,10 @@
             }
             
             var params = new StreetviewParams();
-            params.parseSize(req.query.size);
             params.setHeading(sessionData.route[sessionData.curIndex].heading, req.query.dir);
             params.location = sessionData.route[sessionData.curIndex].location;
 
-            var url = streetview.getStreetviewClickUrl(req.session, req.query.dir);
+            var url = streetview.getStreetviewClickUrl(params);
             web.shortenUrl(url, function(shortUrl) {
                 if(shortUrl) {
                     res.json({url: shortUrl});

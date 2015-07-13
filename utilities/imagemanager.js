@@ -4,7 +4,7 @@
     var fs = require("fs");
     
     imagemanager.downloadToFile = function(url,completion) {
-        var options = {url: url};
+        var options = {url: url.toString()};
         
         var dir = path.join(__dirname, '../public/pics/');
         var imageId = 0;

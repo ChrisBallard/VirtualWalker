@@ -1,6 +1,6 @@
 $(function(){
   var cacheIndex = 0;
-  var streetViewUrl = '/google/streetview?dir=front&size=640x480';
+  var streetViewUrl = '/google/streetview?dir=front&size=560x365';
   var streetViewLeftUrl = '/google/streetview?dir=left&size=160x120';
   var streetViewRightUrl = '/google/streetview?dir=right&size=160x120';
   var streetViewRearUrl = '/google/streetview?dir=rear&size=160x120';

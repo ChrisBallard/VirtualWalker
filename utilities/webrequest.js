@@ -63,7 +63,7 @@
     };
     
     web.shortenUrl = function(url, done) {
-        var qs = querystring.stringify({ longUrl: url, apiKey: config.shortenerKey });
+        var qs = querystring.stringify({ longUrl: url.toString(), apiKey: config.shortenerKey });
         var shortenerUrl = new web.Url("http", config.shortener, "/admin/api/add?" + qs);
         var doneShortening = function(err, response, resJson) {
             if(!err) {

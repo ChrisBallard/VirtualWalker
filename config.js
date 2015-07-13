@@ -5,7 +5,7 @@
         mongo: "mongodb://" + process.env.IP + "/virtualwalker",
         port: process.env.PORT,
         host: "virtualwalker-chrisballard.c9.io",
-        shortener: "chrsb.co",
+        shortener: "shortener-chrisballard.c9.io",
         shortenerKey: secrets.shortenerDev,
         googleApiKey: secrets.google,
         sessionSecret: secrets.session
