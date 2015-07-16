@@ -95,7 +95,7 @@
             }
         });
         
-        var obsPointsList = calculateObservationPoints(routeLegs, 0.5);
+        var obsPointsList = calculateObservationPoints(routeLegs, 0.01);
         return obsPointsList;
     };
         
