@@ -2,6 +2,8 @@ extends layout
 block content
     ul.nav.nav-tabs(role="tablist")
         li.active
+            a(href="#routeplanning",role="tab",data-toggle="tab") Route Planning
+        li
             a(href="#streetview",role="tab",data-toggle="tab") Streetview
         li
             a(href="#routemap",role="tab",data-toggle="tab") Route Map
@@ -9,7 +11,49 @@ block content
             a(href="#blogtext",role="tab",data-toggle="tab") Blog Text
 
     .tab-content
-        #streetview.tab-pane.container.active
+        #routeplanning.tab-pane.container.active
+            form.form-horizontal
+                fieldset
+                    legend Accumulated Route Data
+                
+                    .form-group
+                        label.col-sm-2.control-label(for='totalMiles') Total Miles
+                        .col-sm-10.input-group
+                            input#totalMiles.form-control(type="text", name="totalMiles",placeholder="Total miles")
+                            span.input-group-addon
+                                span.glyphicon.glyphicon-resize-horizontal
+                    .form-group
+                        label.col-sm-2.control-label(for='previousDestination') Previous Dest
+                        .col-sm-10.input-group
+                            input#previousDestination.form-control(type="text", name="prevDest",placeholder="Lat,Long")
+                            span.input-group-addon
+                                span.glyphicon.glyphicon-globe
+                
+                fieldset
+                    legend Today's Route
+                    
+                    .form-group
+                        label.col-sm-2.control-label(for='startLocation') Start
+                        .col-sm-10.input-group
+                            input#startLocation.form-control(type="text", name="startLoc", placeholder="Lat,Long")
+                            span.input-group-addon
+                                span.glyphicon.glyphicon-play
+            
+                    .form-group
+                        label.col-sm-2.control-label(for='endLocation') Destination
+                        .col-sm-10.input-group
+                            input#endLocation.form-control(type="text", name="endLoc", placeholder="lat,long")
+                            span.input-group-addon
+                                span.glyphicon.glyphicon-stop
+            
+                    .form-group
+                        label.col-sm-2.control-label(for='viaLocations') Waypoints
+                        .col-sm-10.input-group
+                            input#viaLocations.form-control(type="text", name="waypoints", placeholder="(optional) - lat,long|lat,long|...")
+                            span.input-group-addon
+                                span.glyphicon.glyphicon-resize-full
+
+        #streetview.tab-pane.container
             .well
                 .row
                     .form-group
@@ -24,24 +68,25 @@ block content
                     button#next(width=120,height=28) Next
                     
                 .row
-                    .col-sm-12
-                        .imageSub
-                            img.img-responsive#streetviewFront(width=640,height=480)
-                            button.imageSubDiv#streetviewAdd(width=28,height=28) +
-                        label &nbsp;
-                .row
-                    .col-sm-4
-                        .imageSub
-                            img.img-responsive#streetviewLeft(width=160,height=120)
-                            button.imageSubDiv#streetviewLeftAdd(width=28,height=28) +
-                    .col-sm-4
-                        .imageSub
-                            img.img-responsive#streetviewRear(width=160,height=120)
-                            button.imageSubDiv#streetviewRearAdd(width=28,height=28) +
-                    .col-sm-4
-                        .imageSub
-                            img.img-responsive#streetviewRight(width=160,height=120)
-                            button.imageSubDiv#streetviewRightAdd(width=28,height=28) +
+                    .col-sm-7
+                        .mainView
+                            img#streetviewFront
+                            button#streetviewAdd
+                                span.glyphicon.glyphicon-plus.small
+
+                    .col-sm-5
+                        .sideView(style="{width: 500px; height: 400px;}")
+                            img#streetviewLeft(style="{width: 500px; height: 400px;}")
+                            button#streetviewLeftAdd
+                                span.glyphicon.glyphicon-plus.small
+                        .sideView
+                            img#streetviewRear
+                            button#streetviewRearAdd
+                                span.glyphicon.glyphicon-plus.small
+                        .sideView
+                            img#streetviewRight
+                            button#streetviewRightAdd
+                                span.glyphicon.glyphicon-plus.small
                         
         #routemap.tab-pane
             .well

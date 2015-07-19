@@ -14,7 +14,12 @@ $(function(){
   var streetViewClickRearUrl = '/google/streetview/clickthrough?dir=rear';
   var routeUrl = '/google/routemap';
   var routeClickUrl = '/google/routemap/clickthrough';
-  
+  var headerText = '<p>Distance covered today: <strong>SSSSS</strong> steps - <strong>NNN</strong> miles<br />\
+Distance traveled so far: <strong>NNN.NN miles</strong><br />\
+Route coordinates: COORDS<br />\
+Walking date: <strong>DDth MMMMM</strong></p>\
+<hr><p><em>I\'m traveling from <a href="http://thevirtualwalker.blogspot.co.uk/2013/09/from-lands-end-to-john-o-groats.html">Land\'s End to John O\' Groats</a> by means of <a href="http://maps.google.co.uk">Google Street View</a> and <a href="http://www.fitbit.com">Fitbit</a>. In other words I have actually walked every mile I log, just in a more mundane location. This blog records the route I might have taken, if I had the luxury of taking a few months off work!</em></p>';
+
   var userSession = null;
   
   $.get("/usersession", function(uSess) {
@@ -77,6 +82,10 @@ $(function(){
     
     $.post('startroute', {points: route}).done(function() {
       updateViews();
+      var markup = $('#blogMarkup');
+      if(markup.val() == "") {
+        markup.val(headerText);
+      }
     }).error(function() {
       alert('startroute failed');
     });
