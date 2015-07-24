@@ -34,3 +34,10 @@ secrets
 
 # exclude pics
 public/pics
+
+# exclude javascript
+*.js
+
+# ... except the libs directory
+!public/lib/*.js
+

@@ -55,26 +55,28 @@
         });
         
         app.post("/movenext", passport.apiIsLoggedIn, function(req, res) {
+            var steps = req.query.steps || 1
             var sessionData = sessCon.getSession(req);
             if(!sessionData) {
                 errors.endWithError(res, "No route defined. Enter and plan a route first");
                 return;
             }
-            if(sessionData.curIndex < sessionData.route.length-1) {
-                sessionData.curIndex++;
+            if(sessionData.curIndex < sessionData.route.length-steps) {
+                sessionData.curIndex += steps;
                 sessCon.updateSession(req,sessionData);
             }
             res.end();
         });   
         
         app.post("/moveprev", passport.apiIsLoggedIn, function(req, res) {
+            var steps = req.query.steps || 1
             var sessionData = sessCon.getSession(req);
             if(!sessionData) {
                 errors.endWithError(res, "No route defined. Enter and plan a route first");
                 return;
             }
-            if(sessionData.curIndex > 0) {
-                sessionData.curIndex--;
+            if(sessionData.curIndex > (steps-1)) {
+                sessionData.curIndex-= steps;
                 sessCon.updateSession(req,sessionData);
             }
             res.end();
